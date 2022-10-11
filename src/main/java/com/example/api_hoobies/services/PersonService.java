@@ -3,7 +3,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
-public class PersonService {
+public class PersonService implements ServiceTemplate<Person>{
+
     @Autowired
     PersonDao reposritory;
 }
