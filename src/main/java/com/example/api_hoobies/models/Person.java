@@ -1,4 +1,4 @@
-package com.example.apitdd.models;
+package com.example.api_hoobies.models;
 
 import lombok.Data;
 
