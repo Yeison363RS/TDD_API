@@ -10,4 +10,20 @@ class ApiHoobiesApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void validateDocumentNumberHaveSense(){
+        validateIdentityDocumentCorrectSense();
+        validateIdentificationCorrrectSense();
+        validatePassportCorrectSense();
+    }
+
+    private void validateIdentityDocumentCorrectSense() {
+
+    }
+
+    private void validateIdentificationCorrrectSense() {
+    }
+
+    private void validatePassportCorrectSense() {
+    }
 }
