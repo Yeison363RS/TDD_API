@@ -14,7 +14,10 @@ class ApiHoobiesApplicationTests {
     }
     @Test
     void saveClient(){
-
+        serviceP.save(person);
+    }
+    void validateNameUser(){
+        person=new Person();
     }
 
 }
