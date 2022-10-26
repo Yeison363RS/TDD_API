@@ -110,7 +110,7 @@
                                 newman
                             </executable>
                             <commandlineArgs>
-                                run collections/collection_sponsor.postman_collection.json -e collections/Environment_Sponsor_Stremming.postman_environment.json
+                                run collections/TestHoobies.postman_collection -e collections/Hoobies_Enviroment.postman_environment.json
                             </commandlineArgs>
                         </configuration>
                     </execution>
