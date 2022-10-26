@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "279a0893-7695-466b-9d13-78b17f262bbe",
+		"name": "TestHoobies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16950351"
+	},
+	"item": [
+		{
+			"name": "Crear persona",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"postman.setGlobalVariable(\"id_person\",data.idPerson);\r",
+							"tests[\"Se  crea una persona sin generar errores\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"maria\",\r\n    \"lastName\":\"castellanos\",\r\n    \"country\":\"uruguay\",\r\n    \"department\":\"casaka\",\r\n    \"city\":\"medilosa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/people/savePerson",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"people",
+						"savePerson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear y agregar hoobie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Se  agrega un Hoobie sin generar errores\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nameHoobie\":\"Comer helado\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/people/addHoobie/{{id_person}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"people",
+						"addHoobie",
+						"{{id_person}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar un grupo y vincular a una persona",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Se  crea agrega una persona a un grupo sin generar errores\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nameGroup\":\"caminatas\",\r\n    \"location\":\"calle 3 n° 34-67\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/people/addGroup/{{id_person}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"people",
+						"addGroup",
+						"{{id_person}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtner todos las personas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Se obtiene la lista de personas sin errore\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/people/all",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"people",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener una persona",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Se obtiene la informacion de una persona sin errores\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{port}}/people/{{id_person}}",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"people",
+						"{{id_person}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
